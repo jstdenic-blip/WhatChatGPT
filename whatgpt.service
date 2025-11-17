@@ -1,13 +1,21 @@
 [Unit]
-Description=WhatChatGPT
+Description=MegaTrades-AI Financial Assistant Service
 After=network.target
 
 [Service]
 Type=simple
-User=your_username
-WorkingDirectory=/path/to/your/app
-ExecStart=/path/to/your/app/your_app_name
+User=megatrades
+WorkingDirectory=/opt/megatrades-ai
+ExecStart=/usr/bin/python3 /opt/megatrades-ai/megatrades_ai.py
+Restart=always
+RestartSec=5
+Environment="TELEGRAM_CHANNEL=https://t.me/greatmega_eo"
+Environment="REGISTRATION_LINK=https://r.expertoption-track.com/?prefid=1012943001&ptr=Tg"
+Environment="PROMO_CODE=G1012943001"
+Environment="MEGATRADES_WEBSITE=https://megatrades.net"
+Environment="BOT_NAME=MegaTrades-AI"
 Restart=always
 
 [Install]
 WantedBy=multi-user.target
+Restart=always
